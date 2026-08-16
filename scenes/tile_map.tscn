@@ -1,0 +1,39 @@
+[gd_scene format=4 uid="uid://v07im6ckn0y5"]
+
+[ext_resource type="Texture2D" uid="uid://bwxneirljy70c" path="res://assets/tetrominoes.png" id="1_7at63"]
+[ext_resource type="Script" uid="uid://c0yu84bh3q6fs" path="res://scenes/tile_map.gd" id="1_jx7lj"]
+[ext_resource type="PackedScene" uid="uid://psjnbhu2tahx" path="res://scenes/hud.tscn" id="3_vxlsc"]
+[ext_resource type="Script" uid="uid://ybb1mnkktt66" path="res://scenes/node.gd" id="4_dohrl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a08xs"]
+texture = ExtResource("1_7at63")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l1uyk"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_a08xs")
+
+[node name="Instance" type="Node2D" unique_id=426443637]
+script = ExtResource("1_jx7lj")
+
+[node name="board" type="TileMapLayer" parent="." unique_id=451447853]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAHAAAAAAAAAAEAAAAHAAAAAAAAAAIAAAAHAAAAAAAAAAMAAAAHAAAAAAAAAAQAAAAHAAAAAAAAAAUAAAAHAAAAAAAAAAYAAAAHAAAAAAAAAAcAAAAHAAAAAAAAAAgAAAAHAAAAAAAAAAkAAAAHAAAAAAAAAAoAAAAHAAAAAAAAAAsAAAAHAAAAAAAAAAwAAAAHAAAAAAAAAA0AAAAHAAAAAAAAAA4AAAAHAAAAAAAAAA8AAAAHAAAAAAAAABAAAAAHAAAAAAAAABEAAAAHAAAAAAAAABIAAAAHAAAAAAAAABMAAAAHAAAAAAAAABQAAAAHAAAAAAAAABUAAAAHAAAAAAABABUAAAAHAAAAAAACABUAAAAHAAAAAAADABUAAAAHAAAAAAAEABUAAAAHAAAAAAAFABUAAAAHAAAAAAAGABUAAAAHAAAAAAAHABUAAAAHAAAAAAAIABUAAAAHAAAAAAAJABUAAAAHAAAAAAAKABUAAAAHAAAAAAALAAAAAAAHAAAAAAALAAEAAAAHAAAAAAALAAIAAAAHAAAAAAALAAMAAAAHAAAAAAALAAQAAAAHAAAAAAALAAUAAAAHAAAAAAALAAYAAAAHAAAAAAALAAcAAAAHAAAAAAALAAgAAAAHAAAAAAALAAkAAAAHAAAAAAALAAoAAAAHAAAAAAALAAsAAAAHAAAAAAALAAwAAAAHAAAAAAALAA0AAAAHAAAAAAALAA4AAAAHAAAAAAALAA8AAAAHAAAAAAALABAAAAAHAAAAAAALABEAAAAHAAAAAAALABIAAAAHAAAAAAALABMAAAAHAAAAAAALABQAAAAHAAAAAAALABUAAAAHAAAAAAA=")
+tile_set = SubResource("TileSet_l1uyk")
+
+[node name="active" type="TileMapLayer" parent="." unique_id=1149161599]
+use_parent_material = true
+tile_set = SubResource("TileSet_l1uyk")
+
+[node name="HUD" parent="." unique_id=1083497610 instance=ExtResource("3_vxlsc")]
+
+[node name="Controller" type="Node" parent="." unique_id=181287524]
+script = ExtResource("4_dohrl")
