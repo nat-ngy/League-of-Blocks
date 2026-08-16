@@ -1,4 +1,5 @@
 @abstract
+extends Node
 class_name Character
 
 var cooldown: int
